@@ -1,6 +1,7 @@
 package com.utez.edu.cursos.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,5 +25,8 @@ public interface UsuariosRepository extends JpaRepository<UsuariosEntity, Long>{
     @Transactional
 	@Query("SELECT u FROM UsuariosEntity u WHERE u.id = :id")
 	public List<UsuariosEntity> usuarioByID(@Param("id") Long id);
+
+	Optional<UsuariosEntity> findByCorreo(String correo);
+	boolean existsByCorreo(String correo);
 
 }
