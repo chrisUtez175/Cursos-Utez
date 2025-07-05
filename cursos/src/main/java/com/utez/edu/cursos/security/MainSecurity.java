@@ -40,6 +40,7 @@ public class MainSecurity {
             "/cursos/auth/password/request-reset",
             "/cursos/auth/password/reset",
             "/cursos/auth/password/**",
+            "/cursos/**",
             "/v3/api-docs/**",
             "/swagger-ui.html",
             "/swagger-ui/**"
