@@ -8,7 +8,6 @@ import com.utez.edu.cursos.Entity.UsuariosDTO;
 import com.utez.edu.cursos.Entity.UsuariosEntity;
 
 
-@Service
 public interface UsuariosServiceRepository {
 	public UsuariosDTO guardarActualizarUsuario(UsuariosDTO usuario);
 	public List<UsuariosEntity> listaUsuarios();

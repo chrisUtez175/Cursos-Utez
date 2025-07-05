@@ -3,6 +3,7 @@ package com.utez.edu.cursos.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +20,8 @@ import jakarta.validation.Valid;
 
 @Controller
 public class UsuariosController {
-	
-	@Autowired
+
+    @Autowired
 	UsuariosServiceRepository usuariosService ;
 	
 	@RequestMapping(value = "cursos/registrar/usuario",method = RequestMethod.POST )
