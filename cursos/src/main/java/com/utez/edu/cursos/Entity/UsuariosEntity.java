@@ -14,28 +14,27 @@ public class UsuariosEntity {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long usuarios_id ;
-	
-	
-    @Column(name = "nombre", nullable = false, length = 255)
+
+    @Column(name = "nombre", nullable = false, length = 100)
 	private String nombre;
     
-    @Column(name = "apellido_pat", nullable = false, length = 255)
+    @Column(name = "apellido_pat", nullable = false, length = 100)
     private String apellido_pat;
     
-    @Column(name = "apellido_mat", nullable = false, length = 255)
+    @Column(name = "apellido_mat", nullable = false, length = 100)
     private String apellido_mat;
     
-    @Column(name = "correo", nullable = false, length = 255)
+    @Column(name = "correo", nullable = false, length = 100)
     private String correo;
     
-    @Column(name = "contraseña", nullable = false, length = 255)
+    @Column(name = "contraseña", nullable = false, length = 100)
     private String contraseña;
     
-    @Column(name = "rol", nullable = false, length = 255)
+    @Column(name = "rol", nullable = false, length = 100)
     private String rol; 
     
-    @Column(name = "estado", nullable = false, length = 255)
-    private String estado;
+    @Column(name = "estado", nullable = false)
+    private boolean estado;
     
     @Transient
     private String mensaje;
@@ -48,7 +47,7 @@ public class UsuariosEntity {
 	}
 
 	public UsuariosEntity(String nombre, String apellido_pat, String apellido_mat, String correo, String contraseña,
-			String rol, String estado, String mensaje) {
+			String rol, boolean estado, String mensaje) {
 		super();
 		this.nombre = nombre;
 		this.apellido_pat = apellido_pat;
@@ -117,11 +116,11 @@ public class UsuariosEntity {
 		this.rol = rol;
 	}
 
-	public String getEstado() {
+	public boolean isEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 

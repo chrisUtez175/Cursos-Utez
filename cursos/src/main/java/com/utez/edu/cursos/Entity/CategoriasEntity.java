@@ -22,14 +22,14 @@ public class CategoriasEntity {
 	
 	private Long categoria_id;
 	
-    @Column(name = "nombre", nullable = true, length = 255)
+    @Column(name = "nombre", nullable = true, length = 50)
 	private String nombre;
     
-    @Column(name = "descripcion", nullable = true, length = 255)
+    @Column(name = "descripcion", nullable = true, length = 100)
 	private String descripcion;
 
-    @Column(name = "estado", nullable = true, length = 255)
-	private String estado;
+    @Column(name = "estado", nullable = true ,columnDefinition = "BOOL DEFAULT TRUE")
+	private boolean estado;
 
     
     @OneToMany(mappedBy = "cursos_id", cascade = CascadeType.ALL)
@@ -39,12 +39,11 @@ public class CategoriasEntity {
 		super();
 	}
 
-	public CategoriasEntity(Long categoria_id, String nombre, String descripcion, String estado) {
-		super();
-		this.categoria_id = categoria_id;
+	public CategoriasEntity(String nombre, String descripcion, boolean estado, List<CursosEntity> cursosEntity) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.estado = estado;
+		this.cursosEntity = cursosEntity;
 	}
 
 	public Long getCategoria_id() {
@@ -71,20 +70,30 @@ public class CategoriasEntity {
 		this.descripcion = descripcion;
 	}
 
-	public String getEstado() {
+	public boolean isEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+
+	public List<CursosEntity> getCursosEntity() {
+		return cursosEntity;
+	}
+
+	public void setCursosEntity(List<CursosEntity> cursosEntity) {
+		this.cursosEntity = cursosEntity;
 	}
 
 	@Override
 	public String toString() {
-		return "CategoriasEntity [categoria_id=" + categoria_id + ", nombre=" + nombre + ", descripcion=" + descripcion
-				+ ", estado=" + estado + "]";
+		return "CategoriasEntity{" +
+				"categoria_id=" + categoria_id +
+				", nombre='" + nombre + '\'' +
+				", descripcion='" + descripcion + '\'' +
+				", estado=" + estado +
+				", cursosEntity=" + cursosEntity +
+				'}';
 	}
-    
-    
-
 }

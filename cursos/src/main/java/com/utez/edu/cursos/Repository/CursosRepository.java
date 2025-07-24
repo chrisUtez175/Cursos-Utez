@@ -14,13 +14,6 @@ import jakarta.transaction.Transactional;
 
 @Repository
 public interface CursosRepository extends  JpaRepository<CursosEntity, Long> {
-	@Modifying
-	@Transactional 
-	@Query("UPDATE CursosEntity c SET c.estado = 'Inactivo' WHERE c.id = :id")
-	public void actualizarEstatus(@Param("id") Long id);
-	
-    @Transactional
-	@Query("SELECT u FROM CursosEntity u WHERE u.id = :id")
-	public List<CursosEntity> cursosByID(@Param("id") Long id);
+
 }
 
