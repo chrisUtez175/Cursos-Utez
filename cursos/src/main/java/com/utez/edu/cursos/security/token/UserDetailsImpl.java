@@ -46,7 +46,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return usuario.getEstado().equalsIgnoreCase("activo");
+        return usuario.isEstado();
     }
 
     public UsuariosEntity getUsuario() {

@@ -16,10 +16,10 @@ public class CursosEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long cursos_id;
 	
-    @Column(name = "nombre", nullable = true, length = 255)
+    @Column(name = "nombre", nullable = true, length = 50)
     private String nombre;
     
-    @Column(name = "duracion", nullable = true, length = 255)
+    @Column(name = "duracion", nullable = true, length = 100)
     private  String duracion;
     
     @Column(name = "temario", nullable = true, length = 255)
@@ -29,7 +29,7 @@ public class CursosEntity {
     private String descripcion;
 	
     @Column(name = "estado", nullable = true, length = 255)
-    private  String estado;
+    private  boolean estado;
     
     @Column(name = "name_img", nullable = true, length = 255)
     private String name_img ;
@@ -45,16 +45,14 @@ public class CursosEntity {
 	}
 
 
-	public CursosEntity(Long cursos_id, String nombre, String duracion, String temario, String descripcion,
-			String estado, String name_img, CategoriasEntity categorias) {
+	public CursosEntity( String nombre, String duracion, String temario, String descripcion,
+						 boolean estado, CategoriasEntity categorias) {
 		super();
-		this.cursos_id = cursos_id;
 		this.nombre = nombre;
 		this.duracion = duracion;
 		this.temario = temario;
 		this.descripcion = descripcion;
 		this.estado = estado;
-		this.name_img = name_img;
 		this.categorias = categorias;
 	}
 
@@ -109,15 +107,13 @@ public class CursosEntity {
 	}
 
 
-	public String getEstado() {
+	public boolean isEstado() {
 		return estado;
 	}
 
-
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-
 
 	public String getName_img() {
 		return name_img;

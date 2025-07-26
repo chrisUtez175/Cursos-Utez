@@ -23,7 +23,7 @@ public class CursosDTO {
 	private String estado;
 	
 	@NotNull(message = "La categoria es obligatorio")
-	private Long categoria;
+	private CategoriasEntity categorias;
 	 
 	private String name_img;
 
@@ -75,13 +75,13 @@ public class CursosDTO {
 		this.estado = estado;
 	}
 
-	
-	public Long getCategoria() {
-		return categoria;
+
+	public CategoriasEntity getCategorias() {
+		return categorias;
 	}
 
-	public void setCategoria(Long categoria) {
-		this.categoria = categoria;
+	public void setCategorias(CategoriasEntity categorias) {
+		this.categorias = categorias;
 	}
 
 	public String getName_img() {

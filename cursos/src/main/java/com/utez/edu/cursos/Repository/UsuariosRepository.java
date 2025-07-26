@@ -16,15 +16,7 @@ import jakarta.transaction.Transactional;
 
 @Repository
 public interface UsuariosRepository extends JpaRepository<UsuariosEntity, Long>{
-	
-	@Modifying
-	@Transactional 
-	@Query("UPDATE UsuariosEntity u SET u.estado = 'Inactivo' WHERE u.id = :id")
-	public void actualizarEstatus(@Param("id") Long id);
-	
-    @Transactional
-	@Query("SELECT u FROM UsuariosEntity u WHERE u.id = :id")
-	public List<UsuariosEntity> usuarioByID(@Param("id") Long id);
+
 
 	Optional<UsuariosEntity> findByCorreo(String correo);
 	boolean existsByCorreo(String correo);

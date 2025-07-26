@@ -20,6 +20,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody UsuariosEntity nuevo) {
+
         return authService.register(nuevo);
     }
 }

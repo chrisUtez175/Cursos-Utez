@@ -48,7 +48,7 @@ public class AuthService {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Correo ya existe");
 
         nuevo.setContraseña(passwordEncoder.encode(nuevo.getContraseña()));
-        nuevo.setEstado("activo");
+        nuevo.setEstado(true);
         return ResponseEntity.ok(usuarioRepo.save(nuevo));
     }
 }

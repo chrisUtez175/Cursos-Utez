@@ -15,12 +15,5 @@ import jakarta.transaction.Transactional;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<CategoriasEntity, Long>{
-	@Modifying
-	@Transactional 
-	@Query("UPDATE CategoriasEntity c SET c.estado = 'Inactivo' WHERE c.id = :id")
-	public void actualizarEstatus(@Param("id") Long id);
-	
-    @Transactional
-	@Query("SELECT u FROM CategoriasEntity u WHERE u.id = :id")
-	public List<CategoriasEntity> categoriaByID(@Param("id") Long id);
+
 }
